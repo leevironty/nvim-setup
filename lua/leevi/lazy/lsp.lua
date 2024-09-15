@@ -32,6 +32,8 @@ return {
             local conf = require 'lspconfig'
             conf.pyright.setup({})
             conf.lua_ls.setup({})
+            -- conf.typescript.setup({})
+            -- conf.tsx.setup({})
         end
     },
     {'neovim/nvim-lspconfig', lazy = false,},
@@ -70,7 +72,7 @@ return {
         config = function()
             require 'mason'
             local opt = {
-                ensure_installed = {'lua_ls', 'pyright'},
+                ensure_installed = {'lua_ls', 'pyright', },
             --     handlers = {
             --         function(server_name)
             --             require('lspconfig')[server_name].setup({})
@@ -80,4 +82,9 @@ return {
             require('mason-lspconfig').setup(opt)
         end,
     },
+    {
+        "pmizio/typescript-tools.nvim",
+        dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig", 'VonHeikemen/lsp-zero.nvim', },
+        opts = {},
+    }
 }
