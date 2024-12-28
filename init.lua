@@ -1,2 +1,7 @@
 vim.cmd("language en_US")
-require("leevi")
+if vim.g.vscode then
+    require('vscconf')
+else
+    require("leevi")
+end
+
